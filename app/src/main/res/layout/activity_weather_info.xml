@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.salah.simplelistviewexample.WeatherInfoActivity">
+
+    <TextView
+        android:id="@+id/information_center_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is a nameplaceholder"
+        android:textSize="20sp" />
+    <!--This is a commonly used way to define a thin
+   (1pt) horizontal line-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/information_center_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the address placeholder"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/information_center_fax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fax: +357 123456"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12dp" />
+    <!--This is used to split the screen
+   horizontally to two equal sections-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/information_center_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Call" />
+
+        <Button
+            android:id="@+id/information_center_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Email" />
+    </LinearLayout>
+
+</LinearLayout>
