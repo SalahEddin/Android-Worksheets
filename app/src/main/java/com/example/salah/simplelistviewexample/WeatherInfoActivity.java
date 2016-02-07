@@ -1,5 +1,6 @@
 package com.example.salah.simplelistviewexample;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,15 +9,15 @@ import android.widget.TextView;
 public class WeatherInfoActivity extends AppCompatActivity {
 
     private TextView nameTextView;
-    private TextView addressTextView;
-    private TextView faxTextView;
+    private TextView cloudTextView;
+    private TextView rainTextView;
     private Button phoneTextView;
     private Button emailTextView;
 
-    private void setSelectedInformationCenter(WeatherInfo weatherInfo) {
+    private void setSelectedWeatherInfo(WeatherInfo weatherInfo) {
         nameTextView.setText(weatherInfo.getName());
-        addressTextView.setText(weatherInfo.getCloud());
-        faxTextView.setText(weatherInfo.getRain());
+        cloudTextView.setText(weatherInfo.getCloud());
+        rainTextView.setText(weatherInfo.getRain());
     }
 
     @Override
@@ -25,9 +26,20 @@ public class WeatherInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather_info);
 
         nameTextView = (TextView) findViewById(R.id.information_center_name);
-        addressTextView = (TextView) findViewById(R.id.information_center_address);
-        faxTextView = (TextView) findViewById(R.id.information_center_fax);
+        cloudTextView = (TextView) findViewById(R.id.information_center_address);
+        rainTextView = (TextView) findViewById(R.id.information_center_fax);
         phoneTextView = (Button) findViewById(R.id.information_center_phone);
         emailTextView = (Button) findViewById(R.id.information_center_email);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        if (intent != null) {
+            WeatherInfo weatherInfo
+                    = (WeatherInfo) intent.getSerializableExtra("selected-item");
+            setSelectedWeatherInfo(weatherInfo);
+        }
     }
 }
